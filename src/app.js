@@ -7,7 +7,7 @@ const notFound = require("./errors/notFound");
 
 const decksRouter = require("./decks/decks.router");
 
-const cardsRouter = require("../cards/cards.router");
+const cardsRouter = require("./cards/cards.router");
 
 const app = express();
 
