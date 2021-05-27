@@ -13,6 +13,8 @@ const app = express();
 
 app.use(express.json());
 
+app.use("/decks", decksRouter)
+
 app.use(notFound);
 
 app.use(errorHandler);
