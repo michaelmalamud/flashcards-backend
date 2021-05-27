@@ -1,5 +1,10 @@
 const knex = require("../db/connection");
 
+function destroy(deckId) {
+    return knex("decks as d")
+    .where({ id: deckId })
+    .del();
+}
 function listDecks(){
     return knex("decks as d")
     .select("*");
@@ -10,4 +15,4 @@ function listCards() {
     .select("*")
 }
 
-module.exports = { listDecks, listCards }
+module.exports = { listDecks, listCards, destroy }
