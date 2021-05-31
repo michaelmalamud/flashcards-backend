@@ -20,14 +20,20 @@ function create(deck) {
     .then((createdRecords) => createdRecords[0]);
 }
 
+function update(updatedDeck) {
+    return knex("decks as d")
+    .where({ id: updatedDeck.id })
+    .update(updatedDeck, "*");
+}
 function listDecks(){
     return knex("decks as d")
     .select("*");
 }
 
-function listCards() {
+function listDecksWithCards() {
     return knex("cards as c")
-    .select("*")
+    .join("decks as d", "c.deck_id", "d.id")
+    .select("*");
 }
 
-module.exports = { listDecks, listCards, destroy, create, read }
+module.exports = { listDecks, listDecksWithCards, destroy, create, update, read }
