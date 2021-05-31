@@ -40,7 +40,7 @@ async function deckExists(req, res, next) {
 }
 
 async function destroy (req, res) {
-    await decksService.destroy(res.locals.deckId);
+    await decksService.destroy(res.locals.deck.id);
     res.sendStatus(204);
 }
 
